@@ -1,0 +1,27 @@
+import centrales.*
+import ciudades.*
+
+test "burnsProduceCon10VarillasDeUranio" {
+	burns.producirEnergia(10,20)
+	assert.that(burns.produccionDeEnergia()==1)
+}
+test "exBosqueProduceCon20toneladas" {
+	exBosque.producirEnergia(10,20)
+	assert.that(exBosque.produccionDeEnergia()==18.5)
+}
+test "produccionDeElSuspiro" {
+	elSuspiro.producirEnergia(10,20)
+	assert.that(elSuspiro.produccionDeEnergia()==2)
+}
+test "centralesContaminantesDeSpringfield"{
+	assert.that(springfield.lasCentralesQueContaminan(10,20)==[exBosque])
+}
+test "springfieldCubreSuNecesidadEnergeticaCon20MKwz"{
+	assert.that(springfield.necesidadEnergetica(20,10,20))
+}
+test "springfieldEstaAlHornoNecesitando30MKwz"{
+	assert.that(springfield.estaEnElHorno(30,10,20))
+}
+test "lasCentralesMasProductorasSonLaHidroelectricaYExBosque"{
+	assert.that(springfield.centralesDeMayorProduccion(10,20)==[albuquerque,exBosque])
+}
